@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package proto;
+
+//  Define-se o que será enviado ao aplicatico
+message Request {
+  int64 num01 = 1;
+  int64 num02 = 2;
+}
+
+//  Define-se o que será retornado ao aplicatico
+message Response { 
+  int64 result = 1; 
+}
+
+
+//  Define-se as funções relativas ao apliacativo que poderão ser acessadas
+service AddService {
+  rpc Sum(Request) returns (Response);
+  rpc Subtract(Request) returns (Response);
+  rpc Multiply(Request) returns (Response);
+  rpc Divide(Request) returns (Response);
+}
